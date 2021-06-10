@@ -1,0 +1,52 @@
+@charset "ISO-8859-1";
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+/*
+ O Layout da pagina foi feito usando grid onde
+
+ MH = mainHeader
+ AS = aside
+ CT = content
+
+*/
+.teste{
+	display: none;
+}
+#layout{
+  display: grid;
+  grid-template-columns: 150px auto;
+  grid-template-rows: 60px auto;
+  
+  grid-template-areas:
+  'AS MH'
+  'AS CT';
+
+  height: 100vh;
+}
+
+#mainHeader{
+  grid-area: MH;
+  display: flex;
+
+  background-color: #000;
+  color: #8b8b8b;
+}
+
+#aside{
+  grid-area: AS;
+  display: flex;
+
+  background-color: #000;
+  color: #8b8b8b;
+}
+
+#content{
+  grid-area: CT;
+  display: flex;
+
+  color: #8b8b8b;
+}
