@@ -1,45 +1,25 @@
 package dogmania.config.jpa;
 
+import javax.enterprise.context.RequestScoped;
+import javax.enterprise.inject.Disposes;
+import javax.enterprise.inject.Produces;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
-import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 
-public final class JpaUtil {
-	private static final String PERSISTENCE_UNIT = "jsfPU";
-	private static ThreadLocal<EntityManager> threadEntityManager = new ThreadLocal<EntityManager>() ;
-	private static EntityManagerFactory entityManagerFactory;
-	private JpaUtil() {
- 	}
- 	public static EntityManager getEntityManager () {
- 	if (entityManagerFactory == null) {
- 		entityManagerFactory = Persistence. createEntityManagerFactory(PERSISTENCE_UNIT);
- 	}
+public class JpaUtil {
 
- 	EntityManager entityManager = threadEntityManager.get();
+    private static EntityManagerFactory emf = Persistence
+            .createEntityManagerFactory("jsfPU");
 
-	if (entityManager == null || !entityManager.isOpen()) {
- 		entityManager = entityManagerFactory.createEntityManager() ;
- 		JpaUtil.threadEntityManager.set(entityManager) ;
- 	}
+    @Produces
+    @RequestScoped
+    public EntityManager getEntityManager() {
+        return emf.createEntityManager();
+    }
 
- 	return entityManager ;
+    public void close(@Disposes EntityManager em) {
+        em.close();
+    }
 
 }
-	public static void closeEntityManager () {
-		EntityManager em = threadEntityManager.get();
-		 
-		if (em != null) {
-			EntityTransaction transaction = em.getTransaction() ;
-			if (transaction.isActive()) {
-				transaction.commit() ;
-			}
-		 em.close() ;
-		 threadEntityManager.set(null);
-		}
-	}
-	public static void closeEntityManagerFactory () {
-		closeEntityManager();
-		entityManagerFactory.close();
-		}
-	}
