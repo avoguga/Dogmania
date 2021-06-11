@@ -19,28 +19,18 @@
 #layout{
   display: grid;
   grid-template-columns: 150px auto;
-  grid-template-rows: 60px auto;
+  grid-template-rows: auto;
   
   grid-template-areas:
-  'AS MH'
   'AS CT';
 
   height: 100vh;
 }
 
-#mainHeader{
-  grid-area: MH;
-  display: flex;
-
-  background-color: #000;
-  color: #8b8b8b;
-}
-
 #aside{
   grid-area: AS;
-  display: flex;
 
-  background-color: #000;
+  background-color: #E28F83;
   color: #8b8b8b;
 }
 
@@ -48,5 +38,5 @@
   grid-area: CT;
   display: flex;
 
-  color: #8b8b8b;
+  color: #FAF2DA;
 }
