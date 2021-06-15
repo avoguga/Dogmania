@@ -16,18 +16,18 @@ public class AnimalRepositoryJPA implements Serializable {
 	 @Inject
 	 private EntityManager manager;
 
-	 public void EditoriaRepositoryJPA () {}
-	 public void EditoriaRepositoryJPA (EntityManager manager) {
+	 public AnimalRepositoryJPA () {}
+	 public void AnimalaRepositoryJPA (EntityManager manager) {
 	    this.manager = manager ;
 	 }
 	 public void salvar(Animal animal) {
         manager.getTransaction().begin() ;
         manager.merge(animal) ;
-        manager.getTransaction().commit() ;\
+        manager.getTransaction().commit() ;
 	 }
 	 public List<Animal> listarTodos () {
-        CriteriaQuery<Animal> query = manager.getCriteriaBuilder().createQuery(Animal. class);
-        query.select(query.from(Animal. class));
+        CriteriaQuery<Animal> query = manager.getCriteriaBuilder().createQuery(Animal.class);
+        query.select(query.from(Animal.class));
         
         List<Animal> lista = manager.createQuery(query).getResultList() ;
 

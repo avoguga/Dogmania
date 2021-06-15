@@ -1,4 +1,8 @@
-C:\Users\avogu\eclipse-workspace\dogmania\src\main\java\dogmania\model\Produto.java
 C:\Users\avogu\eclipse-workspace\dogmania\src\main\java\dogmania\controller\hiController.java
+C:\Users\avogu\eclipse-workspace\dogmania\src\main\java\dogmania\model\Animal.java
+C:\Users\avogu\eclipse-workspace\dogmania\src\main\java\dogmania\config\jpa\JpaUtil.java
 C:\Users\avogu\eclipse-workspace\dogmania\src\main\java\menuView.java
 C:\Users\avogu\eclipse-workspace\dogmania\src\main\java\dogmania\config\ConfigurationBean.java
+C:\Users\avogu\eclipse-workspace\dogmania\src\main\java\service\AnimalService.java
+C:\Users\avogu\eclipse-workspace\dogmania\src\main\java\dogmania\repository\AnimalRepositoryJPA.java
+C:\Users\avogu\eclipse-workspace\dogmania\src\main\java\dogmania\managed\AnimalBean.java
