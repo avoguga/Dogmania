@@ -1,6 +1,7 @@
 package dogmania.model;
 
 import java.beans.BeanProperty;
+import java.sql.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -25,7 +26,7 @@ public class Produto {
 	private Date fabricacao;
 	private Date validade;
 	private String categoria;
-	private Marca marca;
+	private String marca;
 	@Column(name="forncededor_id")
 	private Integer fornecedorId;
 
@@ -42,7 +43,7 @@ public class Produto {
 		this.nome = nome;
 	}
 
-	public String getQuantidade() {
+	public Integer getQuantidade() {
 		return quantidade;
 	}
 
@@ -50,7 +51,7 @@ public class Produto {
 		this.quantidade = quantidade;
 	}
 
-	public String getValorCompra() {
+	public Float getValorCompra() {
 		return valorCompra;
 	}
 
@@ -58,7 +59,7 @@ public class Produto {
 		this.valorCompra = valorCompra;
 	}
 
-	public String getValorVenda() {
+	public Float getValorVenda() {
 		return valorCompra;
 	}
 
@@ -66,7 +67,7 @@ public class Produto {
 		this.valorVenda = valorVenda;
 	}
 
-	public String getFabricacao() {
+	public Date getFabricacao() {
 		return fabricacao;
 	}
 
@@ -74,8 +75,8 @@ public class Produto {
 		this.fabricacao = fabricacao;
 	}
 
-	public String getValidade() {
-		return fabricacao;
+	public Date getValidade() {
+		return validade;
 	}
 
 	public void setValidade(Date validade) {
@@ -98,7 +99,7 @@ public class Produto {
 		this.marca = marca;
 	}
 
-	public String getFornecedor() {
+	public Integer getFornecedor() {
 		return fornecedorId;
 	}
 

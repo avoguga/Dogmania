@@ -15,10 +15,10 @@
         </div>
         <div id="content">
             <div>
-            <p:dataTable value="#{animalBean.animais}" var="animal"
-        id="tabelaAnimal" paginator="true" rows="5">
+            <p:dataTable value="#{produtoBean.produtos}" var="produto"
+        id="tabelaProdutos" paginator="true" rows="5">
                 <p:column headerText="Nome">
-                    <h:outputText value="#{animal.nome}" />
+                    <h:outputText value="#{produto.nome}" />
                 </p:column>
         </p:dataTable>
             </div>	
