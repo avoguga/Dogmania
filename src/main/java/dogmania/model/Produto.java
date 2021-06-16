@@ -27,7 +27,7 @@ public class Produto {
 	private Date validade;
 	private String categoria;
 	private String marca;
-	@Column(name="forncededor_id")
+	@Column(name="fornecedor_id")	
 	private Integer fornecedorId;
 
 	

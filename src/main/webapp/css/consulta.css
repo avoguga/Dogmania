@@ -35,6 +35,11 @@
   height: 630px;
 }
 
+#aside div{
+  display: flex;
+  flex-direction: column;
+}
+
 #aside p {
   font-family: Comic Sans MS;
   font-size: 30px;
