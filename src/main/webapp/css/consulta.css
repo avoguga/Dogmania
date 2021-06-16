@@ -6,9 +6,6 @@
   font-family: Segoe UI;
   color: #000;
 }
-#teste {
-  background-color: #000;
-}
 
 /*
  O Layout da pagina foi feito usando grid onde
@@ -45,6 +42,7 @@
   font-size: 30px;
   font-weight: bold;
   color: #FFF;
+  margin-bottom: 200px;
 }
 
 #content{
@@ -52,4 +50,20 @@
   display: flex;
 
   background-color: #FAF2DA;
+}
+
+#content div{
+  margin: 30px;
+}
+
+#content #cadastro h3{
+  margin-bottom: 10px;
+}
+
+.rp1{
+  width: 200px;
+}
+
+.lista{
+  margin-bottom: 10px;
 }

@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
   xmlns:h="http://xmlns.jcp.org/jsf/html"
   xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
@@ -18,43 +19,50 @@
             </div>
         </div>
         <div id="content">
-            <h:form id="formCadastrar">
-                <p:panelGrid columns="2">
-                    <p:outputLabel for="produto" value="Nome" />
-                    <p:inputText id="produto" value="#{produtoBean.produto.nome}" />
-                </p:panelGrid>
-                <p:panelGrid columns="2">
-                    <p:outputLabel for="produto" value="Quantidade" />
-                    <p:inputText id="quantidade" value="#{produtoBean.produto.quantidade}" />
-                </p:panelGrid>
-                <p:panelGrid columns="2">
-                    <p:outputLabel for="produto" value="Valor de compra" />
-                    <p:inputText id="valorCompra" value="#{produtoBean.produto.valorCompra}" />
-                </p:panelGrid>
-                <p:panelGrid columns="2">
-                    <p:outputLabel for="produto" value="Valor de venda" />
-                    <p:inputText id="valorVenda" value="#{produtoBean.produto.valorVenda}" />
-                </p:panelGrid>
-                <p:panelGrid columns="2">
-                    <p:outputLabel for="produto" value="Data de fabricação" />
-                    <p:inputText id="fabricacao" value="#{produtoBean.produto.fabricacao}" />
-                </p:panelGrid>
-                <p:panelGrid columns="2">
-                    <p:outputLabel for="produto" value="Data de validade" />
-                    <p:inputText id="validade" value="#{produtoBean.produto.validade}" />
-                </p:panelGrid>
-                <p:panelGrid columns="2">
-                    <p:outputLabel for="produto" value="Categoria" />
-                    <p:inputText id="categoria" value="#{produtoBean.produto.categoria}" />
-                </p:panelGrid>
-                <p:panelGrid columns="2">
-                    <p:outputLabel for="produto" value="Marca" />
-                    <p:inputText id="marca" value="#{produtoBean.produto.marca}" />
-                </p:panelGrid>
-                <p:panelGrid columns="2">
-                    <p:outputLabel for="produto" value="ID do fornecedor" />
-                    <p:inputText id="fornecedor" value="#{produtoBean.produto.fornecedor}" />
-                </p:panelGrid>
+            <div id="cadastro">
+                <h:form id="formCadastrar">
+                    <h3>
+                        Produtos:
+                    </h3>
+                    <p:commandButton value="Novo Produto"
+                    actionListener="#{produtoBean.preCadastrar()}"/>
+                    <p:panelGrid columnClasses="rp1,rp2" columns="2">
+                        <p:outputLabel for="produto" value="Nome" />
+                        <p:inputText id="produto" value="#{produtoBean.produto.nome}" />
+                    </p:panelGrid>
+                    <p:panelGrid columnClasses="rp1,rp2" columns="2">
+                        <p:outputLabel for="produto" value="Quantidade" />
+                        <p:inputText id="quantidade" value="#{produtoBean.produto.quantidade}" />
+                    </p:panelGrid>
+                    <p:panelGrid columnClasses="rp1,rp2" columns="2">
+                        <p:outputLabel for="produto" value="Valor de compra" />
+                        <p:inputText id="valorCompra" value="#{produtoBean.produto.valorCompra}" />
+                    </p:panelGrid>
+                    <p:panelGrid columnClasses="rp1,rp2" columns="2">
+                        <p:outputLabel for="produto" value="Valor de venda" />
+                        <p:inputText id="valorVenda" value="#{produtoBean.produto.valorVenda}" />
+                    </p:panelGrid>
+                    <p:panelGrid columnClasses="rp1,rp2" columns="2">
+                        <p:outputLabel for="produto" value="Data de fabricação" />
+                        <p:inputText id="fabricacao" value="#{produtoBean.produto.fabricacao}" />
+                    </p:panelGrid>
+                    <p:panelGrid columnClasses="rp1,rp2" columns="2">
+                        <p:outputLabel for="produto" value="Data de validade" />
+                        <p:inputText id="validade" value="#{produtoBean.produto.validade}" />
+                    </p:panelGrid>
+                    <p:panelGrid columnClasses="rp1,rp2" columns="2">
+                        <p:outputLabel for="produto" value="Categoria" />
+                        <p:inputText id="categoria" value="#{produtoBean.produto.categoria}" />
+                    </p:panelGrid>
+                    <p:panelGrid columnClasses="rp1,rp2" columns="2">
+                        <p:outputLabel for="produto" value="Marca" />
+                        <p:inputText id="marca" value="#{produtoBean.produto.marca}" />
+                    </p:panelGrid>
+                    <p:panelGrid columnClasses="rp1,rp2" columns="2">
+                        <p:outputLabel for="produto" value="ID do fornecedor" />
+                        <p:inputText id="fornecedor" value="#{produtoBean.produto.fornecedor}" />
+                    </p:panelGrid>
+
                 <h:panelGrid columns="1">
                     <p:commandButton id="botaoCadastrar" title="SALVAR"
                                     icon="fa fa-floppy-o"
@@ -65,48 +73,39 @@
                                     actionListener="#{produtoBean.alterar()}"
                                     rendered="#{produtoBean.operacaoAlterar}" />
                 </h:panelGrid>
-            </h:form>
-            <h:form id="formTabelaProdutos">
-                <p:growl id="message" showDetail="true" />
-                <p:commandButton value="Novo Produto"
-                actionListener="#{produtoBean.preCadastrar()}"/>
-                <br />
-                <p:dataTable value="#{produtoBean.produtos}" var="produto"
-                id="tabelaEditoria" paginator="true" rows="10" width="100%"
-                paginatorTemplate="{RowsPerPageDropdown} {FirstPageLink} {PreviousPageLink} {CurrentPageReport} {NextPageLink} {LastPageLink}"
-                currentPageReportTemplate="{currentPage} de {totalPages}"
-                rowsPerPageTemplate="10,15,20" paginatorAlwaysVisible="false"
-                emptyMessage="Nenhuma PRODUTO foi encontrado">
-                    <f:facet name="header">Produtos</f:facet>
-                    <p:column>
-                        <p:commandButton title="ALTERAR" icon="fa fa-pencil"
-                         immediate="true"
-                        actionListener="#{produtoBean.preAlterar(produto)}" />
-                        <p:commandButton title="REMOVER" icon="fa fa-trash"
-                         immediate="true"
-                        actionListener="#{produtoBean.remover(produto)}">
-                        <p:confirm message="Deseja realmente remover a Produto?"
-                        icon="ui-icon-alert" />
-                        </p:commandButton>
-                    </p:column>
-                    <p:column headerText="Nome">
-                        <h:outputText value="#{produto.nome}" />
-                    </p:column>
-                    <p:column headerText="Quantidade">
-                        <h:outputText value="#{produto.quantidade}" />
-                    </p:column>
-                    <p:column headerText="Categoria">
-                        <h:outputText value="#{produto.categoria}" />
-                    </p:column>
-                </p:dataTable>
-                <p:confirmDialog global="true" showEffect="fade" hideEffect="fade"
-            style="text-align:center">
-            <p:commandButton value="Sim" type="button"
-            styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
-            <p:commandButton value="Não" type="button"
-            styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
-            </p:confirmDialog>
-        </h:form>
+                </h:form>
+            </div>
+            <div id="tabela">
+                <h:form id="formTabelaProdutos">
+                    <p:growl id="message" showDetail="true"/>
+                    <br />
+                    <p:dataTable value="#{produtoBean.produtos}" var="produto"
+                    id="tabelaProdutos" rows="10"  width="100%" styleClass="lista"
+                    emptyMessage="Nenhuma PRODUTO foi encontrado">
+                        <f:facet name="header">Lista de Produtos</f:facet>
+                        <p:column>
+                            <p:commandButton title="ALTERAR" icon="fa fa-pencil"
+                             immediate="true"
+                            actionListener="#{produtoBean.preAlterar(produto)}" />
+                            <p:commandButton title="REMOVER" icon="fa fa-trash"
+                             immediate="true"
+                            actionListener="#{produtoBean.remover(produto)}">
+                            <p:confirm message="Deseja realmente remover a Produto?"
+                            icon="ui-icon-alert" />
+                            </p:commandButton>
+                        </p:column>
+                        <p:column headerText="Nome">
+                            <h:outputText value="#{produto.nome}" />
+                        </p:column>
+                        <p:column headerText="Quantidade">
+                            <h:outputText value="#{produto.quantidade}" />
+                        </p:column>
+                        <p:column headerText="Categoria">
+                            <h:outputText value="#{produto.categoria}" />
+                        </p:column>
+                    </p:dataTable>
+                </h:form>
+            </div> 
         </div>
     </div>
 </body>
