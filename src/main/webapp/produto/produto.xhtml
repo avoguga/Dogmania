@@ -18,10 +18,57 @@
             </div>
         </div>
         <div id="content">
+            <h:form id="formCadastrar">
+                <p:panelGrid columns="2">
+                    <p:outputLabel for="produto" value="Nome" />
+                    <p:inputText id="produto" value="#{produtoBean.produto.nome}" />
+                </p:panelGrid>
+                <p:panelGrid columns="2">
+                    <p:outputLabel for="produto" value="Quantidade" />
+                    <p:inputText id="quantidade" value="#{produtoBean.produto.quantidade}" />
+                </p:panelGrid>
+                <p:panelGrid columns="2">
+                    <p:outputLabel for="produto" value="Valor de compra" />
+                    <p:inputText id="valorCompra" value="#{produtoBean.produto.valorCompra}" />
+                </p:panelGrid>
+                <p:panelGrid columns="2">
+                    <p:outputLabel for="produto" value="Valor de venda" />
+                    <p:inputText id="valorVenda" value="#{produtoBean.produto.valorVenda}" />
+                </p:panelGrid>
+                <p:panelGrid columns="2">
+                    <p:outputLabel for="produto" value="Data de fabricação" />
+                    <p:inputText id="fabricacao" value="#{produtoBean.produto.fabricacao}" />
+                </p:panelGrid>
+                <p:panelGrid columns="2">
+                    <p:outputLabel for="produto" value="Data de validade" />
+                    <p:inputText id="validade" value="#{produtoBean.produto.validade}" />
+                </p:panelGrid>
+                <p:panelGrid columns="2">
+                    <p:outputLabel for="produto" value="Categoria" />
+                    <p:inputText id="categoria" value="#{produtoBean.produto.categoria}" />
+                </p:panelGrid>
+                <p:panelGrid columns="2">
+                    <p:outputLabel for="produto" value="Marca" />
+                    <p:inputText id="marca" value="#{produtoBean.produto.marca}" />
+                </p:panelGrid>
+                <p:panelGrid columns="2">
+                    <p:outputLabel for="produto" value="ID do fornecedor" />
+                    <p:inputText id="fornecedor" value="#{produtoBean.produto.fornecedor}" />
+                </p:panelGrid>
+                <h:panelGrid columns="1">
+                    <p:commandButton id="botaoCadastrar" title="SALVAR"
+                                    icon="fa fa-floppy-o"
+                                    actionListener="#{produtoBean.cadastrar()}"
+                                    rendered="#{produtoBean.operacaoCadastrar}" />
+                    <p:commandButton id="botaoSalvar" title="ALTERAR"
+                                    icon="fa fa-floppy-o"
+                                    actionListener="#{produtoBean.alterar()}"
+                                    rendered="#{produtoBean.operacaoAlterar}" />
+                </h:panelGrid>
+            </h:form>
             <h:form id="formTabelaProdutos">
                 <p:growl id="message" showDetail="true" />
-                <p:commandButton value="Nova Produto"
-                
+                <p:commandButton value="Novo Produto"
                 actionListener="#{produtoBean.preCadastrar()}"/>
                 <br />
                 <p:dataTable value="#{produtoBean.produtos}" var="produto"
