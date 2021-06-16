@@ -22,7 +22,7 @@ public class AnimalBean implements Serializable {
  private AnimalService animalService;
  
  public AnimalBean() {
-	 
+	 	
  this.animal = new Animal();
  }
  
