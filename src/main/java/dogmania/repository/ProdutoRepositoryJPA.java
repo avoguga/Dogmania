@@ -34,7 +34,10 @@ public class ProdutoRepositoryJPA implements Serializable {
         return lista;
 	 }
 	public void remover(Produto produto) {
-		// TODO Auto-generated method stub
+		produto = manager.merge(produto) ;
+		manager.getTransaction().begin() ;
+		manager.remove(produto) ;
+		manager.getTransaction().commit() ;
 		
 	}
 	}
